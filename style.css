@@ -1,0 +1,177 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: inherit;
+    outline: none; border: none;
+}
+@font-face {
+    font-family: 'Nunito-Black';
+    src: url(Nunito-Black.ttf);
+}
+@font-face {
+    font-family: 'Nunito';
+    src: url(Nunito-Regular.ttf);
+}
+:root{
+    --pColor : #f01380;
+    --dColor: #2d2d2d;
+    --lColor : #f5f5f5;
+    --gColor : #b9bac7;
+    --bColor: #131313;
+}
+body{
+    font-family: 'Nunito';
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--dColor);
+    color: var(--gColor);
+    line-height:1.7;
+    height: 100vh;
+}
+header{
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    width: 25em;
+    justify-content: center;
+    min-height: 25vh;
+}
+header h1{
+    font-family: 'Nunito-Black';
+    color: var(--lColor);
+    font-weight: 100;
+    font-size: 2.5rem;
+}
+header i{
+    color: var(--pColor);
+    font-size: 5rem;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: absolute;
+    top: 24vh;
+}
+form{
+    width: 30em;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+.inputContainer{
+    width: 100%;
+    background-color: var(--bColor);
+    display: flex;
+    align-items: center;
+    border-radius: 4em;
+    padding-left: 1em;
+}
+form i {
+    font-size: 1.5rem;
+}
+input{
+    font-size: 1.2rem;
+    background-color: transparent;
+    padding: .5em;
+    color: var(--lColor);
+    letter-spacing: 1px;
+    width: 100%;
+}
+.addItemButton{
+    cursor: pointer;
+    padding: .5em;
+    background-color: var(--pColor);
+    border-radius: 50%;
+}
+.categoryContainer{
+    position: absolute;
+    display: flex;
+    gap: .5em;
+    z-index: -1;
+    right: 0;
+}
+.categoryContainer i{
+    font-size: 1.2rem;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 1.8em;
+    height: 1.8em;
+    border-radius: 50%;
+    transition: 1s;
+    cursor: pointer;
+
+}
+.categoryContainer.add{
+    animation: categoryMove 2s forwards;
+}
+.categoryContainer.add i{
+    animation: turnIcon 1s forwards 2;
+}
+.work{
+    background-color: #560bad;
+}
+.gym{
+    background-color: #d64705;
+}
+.home{
+    background-color: #3b6522;
+}
+
+@keyframes categoryMove {
+    0%{
+        right: 0;
+    }
+    30%{
+        right: -140px;
+    }
+    100%{
+        right: -140px;
+        z-index: 1;
+    }
+}
+@keyframes turnIcon {
+    to{transform: rotate(1turn);}
+}
+
+.todoContainer ul{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+.todoItem{
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    border-radius: 1em;
+    padding: .5em 1em;
+    transition: .5s;
+    letter-spacing: 1px;
+    transition: .5s;
+}
+.todoItem i{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.todoItem li{
+    width: 100%;
+}
+
+.completed{
+    opacity: .3;
+    order: 2;
+}
+.completed li{
+    text-decoration: line-through;
+}
+.editing li{
+    animation: blink .3s;
+}
+.editing .fa-file-edit {
+    color: var(--dColor);
+}
+@keyframes blink{
+    to{opacity: 0;}
+}
